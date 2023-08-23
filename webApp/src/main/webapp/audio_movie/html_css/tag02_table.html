@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>행열의 수가 같은 표 만들기</h1>
+<pre>
+   태그
+      table : 표의 시작과 값을 표기한다.
+      tr : 줄을 생성
+      th : 칸을 생성, 주로 제목처럼 강조할 때, 가운데정렬, 진하게 된다.
+      td : 칸을 생성, 
+</pre>
+<table border="1">
+   <caption><h1>시간표</h1></caption>
+   <thead>
+   <tr>
+      <th>1교시   </th>
+      <th>2교시</th>
+      <th>3교시</th>
+   </tr>
+   </thead>
+   <hbody>
+   <tr>
+      <td>자바(java basic~~~~~)</td>
+      <td>
+         html<br/>
+         <image src="../image/dog.jpg" alt="이미지가 없을때 표시되는 문자" width="50%" height="100" title="이미지에 마우스를 올리면 나오는 문자"/>
+      </td>
+      <td>mysql</td>
+   </tr>
+   <tr>
+      <td>spring</td>
+      <td>jsp(Java Server Page)</td>
+      <td>mybatis Framework</td>
+   </tr>
+   </hbody>
+</table>
+<h1>행렬의 수가 다른 표 만들기</h1>
+   <pre>
+      rowspan : 줄의 병합
+      colspan : 칸의 병합
+   </pre>
+<table border="1">
+   <tr>
+      <td colspan="2">111111</td>
+      <!--<td>222222</td>-->
+      <td rowspan='2'>333333</td>
+      <td rowspan="3">4444444</td>
+   </tr>
+   <tr>
+      <td>555555</td>
+      <td rowspan="2">666666</td>
+   </tr>
+   <tr>
+      <td>777777</td>
+      <td>888888</td>
+   </tr>
+</table>
+</body>
+</html>
