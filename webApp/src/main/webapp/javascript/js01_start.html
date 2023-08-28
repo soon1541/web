@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// 주석문
+	/* 여러줄 주석*/
+	document.write("출력할 내용을 문자로 표기가 가능하다.");
+</script>
+
+</head>
+<body>
+	<h1 id="test">자바스크립트 사용하기</h1>
+	<img src="../img/n01.jfif"/>
+	<!--외부파일-->
+	<script src="script.js"></script>
+	
+<script>
+	
+	document.write("<h1>html태그는 문자로 표시한다.</h1>");
+	
+	// html태그의 id가 test인 객체 얻어오기
+	// var, let, const 
+	// var : 중복적으로 선언가능
+	// let : 중복적으로 선언불가능
+	// const : 한번 값이 대입되면 변경할 수 있다.
+	// var h = document.querySelector("#test");
+	var h = document.getElementById("test");
+	
+	h.onclick = function(){
+		//		background-color
+		h.style.backgroundColor = 'yellow'; // h.style.background="red no-repeat";
+	}
+	
+</script>
+
+
+
+</body>
+</html>
+<script>
+	document.write('문자열은 \', \" 도 가능하다.')
+	document.write("<br/>문장의 마지막 세미콜론은 생략가능하다.")
+</script>
