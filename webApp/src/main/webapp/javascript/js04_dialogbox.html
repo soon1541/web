@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+   //alert() : 알림창 ok
+   /*
+   alert("뭘바");
+   
+   //confirm() -> 확인(true)과 취소(false)를 선택할 수 잇는 대화 상자   
+   var result = confirm("삭제 하겠냐");
+   if(result){
+      document.write("지움");
+   }else{
+      document.write("안지움");
+   }*/
+   //prompt : 데이터를 입력 받을 수 있는 대화 상자.
+   //         메시지, 초깃값(생략 가능)
+   var dan = prompt("단을 입력하세요", 6);
+   
+   var r = "<ul>";
+      for(var i=2; i<=9; i++){
+         r+="<li>"+dan+"*"+i+"="+(dan*i)+"</li>"
+      }
+      r+= "<ul/>";
+      
+      document.getElementsByTagName("body")[0].innerHTML = r;
+      
+   console.log(r);
+   document.write("뭔데");
+</script>
+</body>
+</html>
