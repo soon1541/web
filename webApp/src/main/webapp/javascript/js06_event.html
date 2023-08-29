@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+   <style>
+      div {
+         margin: 50px;
+         padding: 50px;
+      }
+
+      #div1 {
+         background: yellow;
+      }
+
+      #div1>div {
+         background: green;
+      }
+
+      #div1 h1 {
+         background: deepskyblue;
+      }
+
+      #div2 {
+         background: #ddd;
+      }
+
+      #div2>div {
+         background: pink;
+      }
+
+      #div2 h1 {
+         background: orange;
+      }
+   </style>
+   <script>
+      /*
+         onload : 페이지 로딩이 완료되면 호출
+         onresize : 창의 크기가 변경되면 호출
+         
+         onmouseover : 객체에 마우스를 올리면, 하위객체도 별도로 각각 이벤트가 발생한다.
+         onmouseout : 객체에서 마우스가 나가면
+         
+         onmouseenter : 마우스를 올리면 이벤트가 발생, 하위객체는 별도의 이벤트가 발생하지 않는다.
+         onmouseleave : 마우스가 나가면 이벤트가 발생, 하위객체는 별도의 이벤트가 발생하지 않는다.
+      */
+      // 아이디에 focus 이벤트 처리하기
+      function setBgColor(obj){
+         obj.style.backgroundColor = "yellow";
+         //document.getElementById(obj).style.backgroundColor = "yellow"
+      }
+      let setFontSize = function(dom){
+        dom.style.fontSize = "2em";
+     }
+     //아리디, 이름, 연락처 압력 유무를 확인하는 함수
+     function formChk(){
+        //아이디
+       var id =  document.getElementById("userid").value;
+       if(id == ""){//8~14사이의 글자 수
+          alert("입력해라");
+          return false;
+       }
+       
+       if(id.length < 8 || id.length > 14){
+          alert("8~14글자");
+         return false; 
+       }
+         
+     
+     if(document.querySelector("#username").value==""){
+         alert("입력해라");
+          return false;
+     }
+     return true;
+    }
+    // keydown, keypress, keyup
+    var keyValueCheck = function(){
+		// 숫자를 입력하는 box에 숫자가 아닌 경우 표시하지 않기
+		// event 내장객체의 kryCode변수가 입력한 키코드(ascii)를 가지고 있다.
+		console.log('code->', event.keyCode);
+	}
+	
+	// event내장객체에 returnValue에 true대입되면 보여주고, false가 대입되면 입력한 문자를 보여주지 않는다.
+	let code = event.keyCode;
+	if(code>=48 && code<=57){ // 숫자
+		event.returnValue = true;
+	}else{ // 숫자가 아닐때
+		event.retrunValue = false;
+	}
+    function testFunc(){
+		alert("testFunc()함수가 실행됨.");
+	}
+    function testEvent(){
+	    let btn = document.getElementById("btn");
+	    
+	    btn.addEventListener('click', function(){
+			alert("버튼에 이벤트가 발생하였습니다.");
+		});
+		
+		btn2.addEventListener('click', testFunc);
+		
+	}
+    
+    
+    
+    
+   </script>
+</head>
+<body onload="console.log('홈페이지에 오신것을 환영합니다.'); testEvent(); "onresize="console.log('창의 크기가 변경되었습니다.')">
+   <form method="post" action="abc.jsp" id="frm" onsubmit="return formChk()">
+      아이디 : <input type="text" name="userid" id="userid" onfocus="setBgColor(this)"
+                onblur="setFontSize(this)"/><br/>
+      이름 : <input type="text" name="username" id="username" onfocus="setBgColor(this)"
+                onblur="setFontSize(this)"/><br/>
+      연락처 : <input type="text" name="tel" id="tel" placeholder="01012345678" onkeyup="keyValueCheck()"/><br/>
+      <input type="submit" value="전송"/>
+      <input type="reset" value="취소"/>
+      <input type="button" value="등록"/>
+      <input type="button" value="등록" id="btn"/>
+      <input type="button" value="등록2" id="btn2"/>
+   </form>
+   <hr/>
+   
+   <img src="../img/jeju.png" style="width:200px;height:200px;"
+   onmouseenter="this.src='../img/moon.jpg'"
+   onmouseleave="this.src='../img/jeju.png'"
+   />
+   <div id="div2">
+      <div>
+         <h1>mouseenter, mouseleave 이벤트 테스트하기<span id="view3">0</span>,<span id="view4">0</span></h1>
+      </div>
+   </div>
+   <script>
+      var m1 = 0, m2 = 0;
+
+      document.getElementById("div2").onmouseenter = function () {
+         document.getElementById("view3").innerHTML = ++m1;
+      }
+      document.getElementById("div2").onmouseleave = function () {
+         document.getElementById("view4").innerHTML = ++m2;
+      }
+   </script>
+
+   <!-- onmouseover, onmouseout -->
+
+   <div id="div1">
+      <div>
+         <h1>mouseover, mouseout 이벤트 테스트하기<span id="view">0</span>,<span id="view2">0</span></h1>
+      </div>
+   </div>
+   <script>
+      var cnt = 0, outCount = 0;
+      var dom1 = document.getElementById("div1");
+      dom1.onmouseover = function () {
+         document.querySelector("#view").innerHTML = ++cnt;
+      }
+
+      document.querySelector("#div1").onmouseout = function () {
+         document.getElementById("view2").innerHTML = ++outCount;
+      }
+   </script>
+</body>
+
+</html>
