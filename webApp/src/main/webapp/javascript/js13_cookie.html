@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+   <script>
+      function popupView() {
+		 var cookie = document.cookie;
+		 // notice관련 쿠키가 없으면 팝업창을 띄운다.
+		 cookie.indexOf("notice")
+         window.open("popup.html", "p", "width=400px,height=400px;");
+      }
+
+      window.onload = function () {
+         popupView();
+      }
+
+   </script>
+</head>
+
+<body>
+   <img src="../img/car-07.png" />
+</body>
+
+</html>
