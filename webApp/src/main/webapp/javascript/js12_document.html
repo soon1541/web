@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="div1">
+		자바스크립트에서 Dom객체로 만들어 태그를 추가하기
+	</div>
+	
+	
+	<script>
+		// document 내장객체
+		document.title = "도큐먼트 내장객체"; // 제목
+		
+		document.write('url->', document.location) // url주소 프로토콜 : \\url:port\폴더\파일명
+		
+		document.write('<br/>마지막 작성일->', document.lastModified);
+		
+		document.write('<br/>도메인->', document.domain);
+		
+		document.bgColor = '#89f';
+		document.write('<br/>bgColor->', document.bgColor);
+		
+		var obj = document.createElement("p"); // 태그 생성
+		obj.setAttribute("style","color:white"); // 속성
+		obj.setAttribute("id","view");
+		
+		obj.innerHTML = "p태그를 자바스크립에서 만듬"; // 내용추가
+		
+		document.getElementById("div1").prepend(obj); // 제일 앞에 추가
+		
+		var imgDom = document.createElement("img");
+		imgDom.setAttribute("src","../img/car-07.png");
+		
+		document.getElementById("div1").append(imgDom); // 제일 마지막에 추가
+		
+	</script>
+
+
+
+
+</body>
+</html>
