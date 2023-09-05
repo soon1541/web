@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	https://jqueryui.com/    -> jquery ui
+	
+	1. jquery-ui.css
+	2. jquery
+	3. jquery-ui.js
+-->
+<style>
+	#dialogOpen, #result{width:600px; text-align:center; margin:0 auto;}
+	#dialogOpen{font-size:2em; background-color: #ddd;}
+	#result{
+		background-color : aliceblue; height:600px;
+	}
+	h1{text-align:center;}
+	input[type=text],label{margin-bottom:12px; padding:5px; width:95%;}
+</style>
+<link rel="stylesheet" href="jquery-ui.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="jquery-ui.js"></script>
+<script></script>
+<script>
+	$(function(){
+		function clear(){
+			$("#event-name").val("");
+			$("#event-date").val("");
+		}
+		// 다이얼로그 띄우기
+		$("#dialogOpen").click(function(){
+			$("#dialog").dialog('open');
+		});
+		
+		$("#dialog").dialog({
+			autoOpen : false // 실행이 자동열림 설정(true:기본, false)
+			,buttons : {
+				등록 : function(){
+					var name = $("#event-name").val();
+					var date = $("#event-date").val();
+					
+					$("#result").append("<p>" + date + "  :  " + name + "</p>");
+					
+					// 이미 입력된 일정을 초기화
+					clear();
+				},
+				취소 : function(){
+					clear();
+				},
+				닫기 : function(){
+					clear();
+					$("#dialog").dialog('close');
+				}
+			},
+			modal : true // dialog가 띄워진 상태에서는 메인 내용을 사용할 수 없다.
+		});
+		// input 박스를 날짜 선택이 가능한 기능으로 설정하기
+		$("#event-date").datepicker({
+			dateFormat : 'yy년 mm월 dd일' // yy:년도 4자리, y:년도 2자리 
+			,numberOFmonths : 3 // 한번에 표시할 월의 수
+		});
+	});
+</script>
+
+</head>
+<body>
+<div id="dialogOpen">일정등록</div>
+<hr/>	
+<div id="result">일정이 표시되는 곳</div>
+<!-- dialog장 만들기              title속성값이 다이얼로그 창의 제목으로 사용된다  -->
+<div id="dialog" title="오늘의 일정 등록하기">
+	<h1>일정을 등록하세요.</h1>
+	<label for="event-name">일정이름</label> : <input type="text" id="event-name"/>
+	<label for="event-date">날짜선택</label> : <input type="text" id="event-date"/>
+	
+</div>
+
+
+
+</body>
+</html>
