@@ -7,10 +7,45 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="../hcss/default.css">
 	<link rel="stylesheet" href="../hcss/community-nav.css">
-	<link rel="stylesheet" href="../hcss/community-header.css">
-	<link rel="stylesheet" href="../hcss/community-ranking-and-postlist.css">
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=43f789e75b8922b41ac6921c8e130658"></script>
+	<link rel="stylesheet" href="../hcss/minihome-default.css">
+	<link rel="stylesheet" href="../hcss/memo_posting.css">
+
+	<style>
+		.post-text-area {
+			margin-top: 8px;
+			margin-bottom: 13px;
+		}
+
+		.image-preview-section {
+			background-image: url('../img/images.jpg');
+			background-size: cover;
+			/* 이미지 크기 조절 */
+			width: 192px;
+			height: 227px;
+			/* 적절한 높이 설정 */
+			margin : 0 auto;
+		}
+
+		#preview {
+			width: 192px;
+			height: 227px;
+			border : 0;
+			/* 이미지 비율 유지하며 부모 요소 내부에 맞춤 */
+		}
+		.selected-list {
+			margin-top : 11px !important;
+			margin-bottom : 17px;
+			height : 240px;
+			padding : 0;
+		}
+		.selected-list-class {
+			height : 233px;
+			padding : 0;
+			margin : 0;
+		}
+		
+		
+	</style>
 
 </head>
 
@@ -23,21 +58,23 @@
 				<a href="Community_home.html"><img src="../img/Logo.png" class="logo"></a><!-- 로고 이미지 -->
 			</div>
 			<div class="banner_login">
-				<a href="#"><img src="../img/User.png" class="user-icon"></a><!-- 여기 링크는 뭐들어가요?? 미니홈피?? -->
-				<a href="#" class="login-button">로그인</a><!-- 이거 # 로그인으로 바꿔야함 -->
+				<a href="MiniHome_Home.html"><img src="../img/User.png"
+						class="user-icon"></a><!-- 여기 링크는 뭐들어가요?? 미니홈피?? -->
+				<a href="Sign_In.html" class="login-button">로그인</a><!-- 이거 # 로그인으로 바꿔야함 -->
 			</div>
 		</div>
 		<!-- 홈, 자유게시판.... 카테고리 + 검색버튼 -->
 		<div class="nav-02">
 			<div class="category">
 				<a href="Community_home.html">홈</a><!-- 홈 -->
-				<a href="#">자유게시판</a><!-- 자유게시판 -->
-				<a href="#">인증게시판</a><!-- 인증게시판 -->
-				<a href="#">Q&A게시판</a><!-- Q&A게시판 -->
-				<a href="#">헬스장찾기</a><!-- 헬스장찾기 -->
+				<a href="Community_Free.html">자유게시판</a><!-- 자유게시판 -->
+				<a href="Community_Auth.html">인증게시판</a><!-- 인증게시판 -->
+				<a href="Community_QNA.html">Q&A게시판</a><!-- Q&A게시판 -->
+				<a href="Community_Map.html">헬스장찾기</a><!-- 헬스장찾기 -->
 			</div>
 			<div class="main-search-box">
-				<input type="search" name="main-search" id="main-search" class="main-search"><!-- 상단 검색박스 -->
+				<input type="search" name="main-search" id="main-search" class="main-search"
+					placeholder="전체 게시물 검색"><!-- 상단 검색박스 -->
 				<!-- 이건 이쁜거 있으면 그때 수정하는걸로 일단 input:search로 넣어둠 -->
 			</div>
 		</div>
@@ -45,132 +82,130 @@
 	<hr>
 	<!-- #endregion -->
 
+	<!-- 미니홈피 좌측영역(수정 절대 금지) -->
 	<!-- #region start -->
-	<header>
-		<!-- 게시판 알려주는 박스 -->
-		<div class="intro-board">
-			<div class="board-name">자유게시판</div>
-			<div class="board-introduce">흥미롭고 자유로운 이야기를 공유합니다.</div>
-		</div>
-	</header>
-	<!-- #endregion -->
+	<div class="minihome-area">
+		<div class="home-left">
+			<div class="profile-area">
+				<div class="profile-container">
+					<div class="profile-pic">
+						<img src="../img/images.jpg">
+					</div>
+					<div class="name-id-section">
+						<div id="username-div" class="username-section" contentEditable="false">로니 콜먼</div>
+						<p class="userid-section">@musclemuscle_man</p>
+					</div>
+					<div class="self-comment-section">
+						<div id="self-comment">
+							<div id="self-comment-editable" contentEditable='false'>운동은 내 인생</div>
+						</div>
 
-	<!-- #region start -->
-	<!-- 랭킹영역 -->
-	<!-- #region start -->
-	<div class="content">
-		<div class="left">
-			<div class="follow-ranking">
-				<ul>
-					<li class="ranking-head">팔로워 랭킹</li>
-					<br>
-					<li><a href="#">#1 : 팔로워1등</a></li>
-					<li><a href="#">#2 : 팔로워2등</a></li>
-					<li><a href="#">#3 : 팔로워3등</a></li>
-					<li><a href="#">#4 : 팔로워4등</a></li>
-					<li><a href="#">#5 : 팔로워5등</a></li>
-					<li><a href="#">#6 : 팔로워6등</a></li>
-					<li><a href="#">#7 : 팔로워7등</a></li>
-					<li><a href="#">#8 : 팔로워8등</a></li>
-					<li><a href="#">#9 : 팔로워9등</a></li>
+						<div class="follow-count-section">
+							<div class="follower">팔로워 :&nbsp<p class="follower-count">0</p>
+							</div>
+							<div class="follow">팔로우 :&nbsp<p class="follow-count">30</p>
+							</div>
+						</div>
+					</div>
+					<div class="edit-profile-section">
+						<input type="button" value="프로필 수정" class="edit-profile" id='edit-button'
+							onclick='editProfile()'>
+						<input type='button' value='확인' class='edit-profile' id='confirm-button' style='display: none;'
+							onclick='confirmProfile()'>
 
-				</ul>
+					</div>
+				</div>
 			</div>
-			<div class="like-ranking">
-				<ul>
-					<li class="ranking-head">인기글 랭킹</li>
-					<br>
-					<li><a href="#">#1 : 인기글1등</a></li>
-					<li><a href="#">#2 : 인기글2등</a></li>
-					<li><a href="#">#3 : 인기글3등</a></li>
-					<li><a href="#">#4 : 인기글4등</a></li>
-					<li><a href="#">#5 : 인기글5등</a></li>
-					<li><a href="#">#6 : 인기글6등</a></li>
-					<li><a href="#">#7 : 인기글7등</a></li>
-					<li><a href="#">#8 : 인기글8등</a></li>
-					<li><a href="#">#9 : 인기글9등</a></li>
-				</ul>
+			<div class="count-area">
+				<div class="count-area-container">
+					<div class="today-attend-section">
+						<input type="button" value="출석체크" class="today-attend" id="today-attend">
+					</div>
+					<div class="memo-today-section">
+						<div class="memo">Memo :&nbsp<p class="memo-count">2</div>
+						<div class="today">Today :&nbsp<p class="today-count">13</div>
+					</div>
+					<div class="check-mine-post">
+						<a href="#">내 글 보기</a>
+					</div>
+					<div class="reg-date">가입일자 :&nbsp<p>2023년 09월 08일</p>
+					</div>
+				</div>
 			</div>
+
 		</div>
+
 		<!-- #endregion -->
-		<!-- 지도 부분 -->
-		<div class="right">
-			<div id="search-box" style="margin-top:53px;">
+		<div class="home-right">
 
-				<input type="text" id="search-input" placeholder="장소 검색">
-				<button id="search-button" style="color:white; background:#464d86;  border-radius:0.5em;">검색</button>
-			</div>
-			<div class="map-container" style=" width:884px; height:700px; margin-top:16px;">
+			<div class="maincontainer">
+				<!-- 이 아래부터 수정 허용 -->
 
-				<div id="map" style="width:100%; height: 100%;"></div>
-				<script>
-					// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-					var infowindow = new kakao.maps.InfoWindow({zIndex: 1});
+				<div class="memo-posting-left"><!-- 날짜, 부위선택, 본문, 이모지선택 -->
+					<p class="year-month-day">2023년 09월 09일 메모</p>
 
-					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-						mapOption = {
-							center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-							level: 3 // 지도의 확대 레벨
-						};
 
-					// 지도를 생성합니다    
-					var map = new kakao.maps.Map(mapContainer, mapOption);
+					<!-- 문구 띄우기-->
+					<textarea readonly class="post-text-area">😀 오늘의 운동은 ~~ 하셨군요</textarea>
 
-					// 장소 검색 객체를 생성합니다
-					var ps = new kakao.maps.services.Places();
+					<!-- 게시글 작성 영역 -->
+					<textarea readonly  class="post-text-area"> 오늘은 운동이 너무 잘되었다. </textarea>
 
-					// 키워드로 장소를 검색합니다
-					ps.keywordSearch('이태원 맛집', placesSearchCB);
+					<!-- 이모티콘 선택 영역-->
 
-					// 키워드 검색 완료 시 호출되는 콜백함수 입니다
-					function placesSearchCB(data, status, pagination) {
-						if (status === kakao.maps.services.Status.OK) {
+				</div>
+				<div class="memo-posting-right">
+					<div class="checkbox-section">
+						<p><input type="checkbox" id="myCheck">인증게시판 연동</p>
+					</div>
+					<div class="selected-list">
+						<select name="selected-list" id="selected-list" size="10" class="selected-list-class">
+						<option style="background-color : #7aa5e9; color : #ffffff; ">상체-가슴</option>
+						<option style="background-color : #4066b0; color : #ffffff; ">하체-허벅지</option>
+						<option style="background-color : #7aa5e9; color : #ffffff; ">상체-어깨</option>
+						<option style="background-color : #7aa5e9; color : #ffffff; ">상체-복부</option>
+						<option style="background-color : #4066b0; color : #ffffff; ">하체-종아리</option>
+						</select>
+					</div>
+					<!-- ㅅㅂ 어캐하노 이걸 -->
+					<div class="image-preview-section">
+						<img id='preview' />
+					</div>
 
-							// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-							// LatLngBounds 객체에 좌표를 추가합니다
-							var bounds = new kakao.maps.LatLngBounds();
+					<input type="button" value="수정" class="submit-button">
+				</div>
 
-							for (var i = 0; i < data.length; i++) {
-								displayMarker(data[i]);
-								bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-							}
+				<!-- 등록 버튼 -->
 
-							// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-							map.setBounds(bounds);
-						}
-					}
 
-					// 지도에 마커를 표시하는 함수입니다
-					function displayMarker(place) {
-
-						// 마커를 생성하고 지도에 표시합니다
-						var marker = new kakao.maps.Marker({
-							map: map,
-							position: new kakao.maps.LatLng(place.y, place.x)
-						});
-
-						// 마커에 클릭이벤트를 등록합니다
-						kakao.maps.event.addListener(marker, 'click', function () {
-							// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-							infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-							infowindow.open(map, marker);
-						});
-					}
-				</script>
 			</div>
 		</div>
+	</div>
+
+
+
+
+	<script src="../js/minihome-default.js"></script>
+
+	<footer>
+		<div class="bottom_bar2">
+			<div class="bottom_bar2_box">
+				<p>전북 익산시 익산대로 460 (우)54538<br>지번: 신동 272<br><br>원광대학교 컴퓨터소프트웨어공학</p>
+				<p1>© 2023 by Group 4
+				</p1>
+				<div class="bottom_bar2_box_box">
+					<input id="bottom_bar2_textbox1" type="text" name="IDInput" placeholder="아이디">
+					<input id="bottom_bar2_textbox2" type="text" name="IDInput" placeholder="이메일">
+					<input id="bottom_bar2_textbox3" type="text" name="IDInput" placeholder="전화번호">
+					<input id="bottom_bar2_textbox4" type="text" name="IDInput" placeholder="문의 내용 입력">
+					<button>제출하기</button>
+				</div>
+				<p2>Contact Us<br><br>TEL: 123-4567-8900<br>E-MAIL: dddd@naver.com<br></p2>
+				<p3> Thank you.
+				</p3>
+			</div>
+		</div>
+	</footer>
 </body>
+
 </html>
-
-
-<!--   세부카테고리, 전체게시물, 내 게시물
-        <div class="second-category">
-            <select name="2nd-category" id="second-cat">
-                <option value="1">상체</option>
-                <option value="2">허리</option>
-                <option value="3">다리</option>
-            </select>
-        </div>
-        <div class="check-post"><a href="#">전체 게시물</a></div>
-        <div class="check-post"><a href="#">내 게시물</a></div> -->
-<!-- 이건 나중에 게시글목록부분 상단에 붙여야함. 헤더에 붙일 수 있는 구조가 아님 -->
